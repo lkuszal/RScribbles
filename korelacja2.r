@@ -1,0 +1,19 @@
+y=c(0.7,0.6,0.8,0.85,0.55,0.65,0.9,1,0.75,0.5)
+z=c(0.5,0.7,0.5,0.4,0.75,0.6,0.3,0.2,0.55,0.7)
+r0=1
+sry=mean(y)
+srz=mean(z)
+gora=0
+dol1=0
+dol2=0
+for(x in seq(1,length(y))){
+  a=(y[x]-sry)
+  b=(z[x]-srz)
+  gora=gora+(a*b)
+  dol1=dol1+a^2
+  dol2=dol2+b^2
+}
+R=gora/sqrt(dol1*dol2)
+Z=0.5*log((1+R)/(1-R))
+U=(Z-0.5*log((1+r0)/(1-R))-r0/(2*(length(y)-1)))*sqrt(length(y)-3)
+print(U)

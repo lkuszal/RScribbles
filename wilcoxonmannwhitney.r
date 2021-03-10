@@ -1,0 +1,12 @@
+library(Zseq)
+Dane1=c(2,8,7,19)
+Dane2=c(4,20,9,25)
+Dane0=(c(Dane1,Dane2))
+a=length(Dane1)
+b=length(Dane2)
+ranDane0=rank(Dane0)
+ranDane1=ranDane0[1:a]
+ranDane2=ranDane0[a+1:b]
+V=sum(ranDane2)-as.numeric(Triangular(b+1)[(b+1)])
+U=a*b-V
+W=V+(b*(b+1))/2

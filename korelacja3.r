@@ -1,0 +1,35 @@
+a1=c(0.7,0.6,0.8,0.85,0.55,0.65,0.9,1,0.75,0.5)
+a2=c(0.5,0.7,0.5,0.4,0.75,0.6,0.3,0.2,0.55,0.7)
+b1=c(0.7,0.6,0.8,0.85,0.55,0.65,0.9,1,0.75,0.5)
+b2=c(0.5,0.7,0.5,0.4,0.75,0.6,0.3,0.2,0.55,0.7)
+sra1=mean(a1)
+sra2=mean(a2)
+len1=length(a1)
+len2=length(b1)
+gora=0
+dol1=0
+dol2=0
+for(x in seq(1,len1)){
+  y=(a1[x]-sra1)
+  z=(a2[x]-sra2)
+  gora=gora+(y*z)
+  dol1=dol1+y^2
+  dol2=dol2+z^2
+}
+R1=gora/sqrt(dol1*dol2)
+srb1=mean(b1)
+srb2=mean(b2)
+gora=0
+dol1=0
+dol2=0
+for(x in seq(1,len2)){
+  y=(b1[x]-srb1)
+  z=(b2[x]-srb2)
+  gora=gora+(y*z)
+  dol1=dol1+y^2
+  dol2=dol2+z^2
+}
+R2=gora/sqrt(dol1*dol2)
+Z1=0.5*log((1+R1)/(1-R1))
+Z2=0.5*log((1+R2)/(1-R2))
+U=(Z1-Z2)*sqrt(((len1-3)*(len2-3))/(len1+len2-6))
